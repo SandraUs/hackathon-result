@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
 
 * {
     margin: 0;
@@ -8,7 +8,7 @@
 
 body {
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     height: 100vh;
     width: 100%;
     padding: 2rem;
@@ -33,10 +33,87 @@ body {
     font-size: 1rem;
     color: #eee;
     cursor: pointer;
-    transition: background-color .2s ease-in;
+    transition: background-color 0.2s ease-in;
     border-radius: inherit;
 }
 
 .menu .menu-item:hover {
     background: #343434;
 }
+
+/* RANDOM SOUND */
+.sound-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.sound-panel h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.sound-panel h4 {
+    margin: 15px 0 8px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.sound-panel .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+}
+
+.sound-panel .close-btn:hover {
+    color: #333;
+}
+
+.sound-panel .note-btn {
+    background: #2196f3;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 15px;
+    margin: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.sound-panel .note-btn:hover {
+    background: #1976d2;
+}
+
+.sound-panel .effect-btn {
+    background: #9c27b0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 15px;
+    margin: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.sound-panel .effect-btn:hover {
+    background: #7b1fa2;
+}
+/* RANDOM SOUND */
