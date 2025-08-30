@@ -75,32 +75,21 @@ export class TimerModule extends Module {
             secondsRemaining.textContent = String(secs).padStart(2, '0') + ' С';
         }
 
-        //Парс времени из инпута
-        function parseInputTime(value) {
-            const parts = value.split(':').map(Number);
-            if(parts.length === 3) {
-                return parts[0] * 3600 + parts[1] * 60 + parts[2];
-            }
-            return 0;
-        }
-
         //Старт
         startButton.addEventListener('click', () => {
-            if(interval) {
+            if (interval) {
                 clearInterval(interval);
             }
-            
-            totalSeconds = parseInputTime(inputOfTimer.value);
-            
-            if(totalSeconds <= 0) {
-                return;
-            }
-
+            const parts = inputOfTimer.value.split(':').map(Number);
+            totalSeconds = (parts[0] || 0) * 3600 + (parts[1] || 0) * 60 + (parts[2] || 0);
+        
             updateDisplay(totalSeconds);
-
+        
             interval = setInterval(() => {
-                totalSeconds--;
-                updateDisplay(totalSeconds);
+                if (totalSeconds > 0) {
+                    totalSeconds--;
+                    updateDisplay(totalSeconds);
+                }
             }, 1000);
         });
 
