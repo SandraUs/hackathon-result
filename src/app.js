@@ -14,3 +14,6 @@ document.addEventListener('contextmenu', event => {
 document.addEventListener('click', () => {
     menu.close();
 })
+
+import './styles.css'
+import './modules/css/Click_Module.css'
