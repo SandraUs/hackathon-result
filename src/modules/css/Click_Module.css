@@ -1,0 +1,71 @@
+.container-start {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.8);
+  padding: 30px 40px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  min-width: 300px;
+}
+
+.button-start {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button-start:hover {
+  background-color: #d32f2f;
+}
+
+.container-result {
+position: fixed;
+bottom: 20px;
+right: 20px;
+padding: 15px 20px;
+background-color: rgba(0, 0, 0, 0.8);
+color: white;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+z-index: 10000;
+min-width: 220px;
+text-align: center;
+}
+
+.text-result {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.image-after-click {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.button-results-panel {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f44336;
+  color: white;
+  transition: 0.2s;
+}
+
+.button-results-panel:hover {
+  background-color: #d32f2f;
+}
