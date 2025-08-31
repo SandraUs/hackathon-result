@@ -40,3 +40,34 @@ body {
 .menu .menu-item:hover {
     background: #343434;
 }
+
+.how-much-time {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top: 5px;
+    max-width: 400px;
+    margin: 5px auto;
+    background: #1b1a1a;
+    padding: 10px 26px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 10px;
+    animation: move-down 5s forwards;
+}
+
+@keyframes move-down {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(150px);
+    }
+}
