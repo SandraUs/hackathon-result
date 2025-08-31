@@ -55,8 +55,13 @@ export class TimerModule extends Module {
         stopButton.className = 'stop-button button';
         stopButton.textContent = 'Стоп';
 
+        //Сообщение "Время вышло!"
+        const timeUpMessage = document.createElement('div');
+        timeUpMessage.className = 'time-up-message';
+        timeUpMessage.textContent = 'Время вышло!';
+
         timerWindow.append(buttonCloseTimer, timeRemainingContainer, timerControlsContainer);
-        timeRemainingContainer.append(hoursRemaining, minutesRemaining, secondsRemaining);
+        timeRemainingContainer.append(hoursRemaining, minutesRemaining, secondsRemaining, timeUpMessage);
         timerControlsContainer.append(inputOfTimer, startButton, stopButton);
         
         document.body.append(timerWindow);
@@ -64,6 +69,26 @@ export class TimerModule extends Module {
         let interval = null;
         let totalSeconds = 0;
 
+        //Валидация для инпута
+        inputOfTimer.addEventListener('input', () => {
+            let valueOfInput = inputOfTimer.value.replace(/[^0-9]/g,'').slice(0,6);
+        
+            let hh = valueOfInput.slice(0,2);
+            let mm = valueOfInput.slice(2,4);
+            let ss = valueOfInput.slice(4,6);
+        
+            if (hh && parseInt(hh) > 23) hh = '23';
+            if (mm && parseInt(mm) > 59) mm = '59';
+            if (ss && parseInt(ss) > 59) ss = '59';
+        
+            let display = '';
+            if(hh) display += hh;
+            if(mm) display += (display ? ':' : '') + mm;
+            if(ss) display += (display ? ':' : '') + ss;
+        
+            inputOfTimer.value = display;
+        });
+        
         //Функция для обновления отображения
         function updateDisplay(seconds) {
             const hrs = Math.floor(seconds / 3600);
@@ -80,6 +105,11 @@ export class TimerModule extends Module {
             if (interval) {
                 clearInterval(interval);
             }
+            timeUpMessage.style.display = 'none';
+            hoursRemaining.style.display = 'block';
+            minutesRemaining.style.display = 'block';
+            secondsRemaining.style.display = 'block';
+
             const parts = inputOfTimer.value.split(':').map(Number);
             totalSeconds = (parts[0] || 0) * 3600 + (parts[1] || 0) * 60 + (parts[2] || 0);
         
@@ -89,6 +119,17 @@ export class TimerModule extends Module {
                 if (totalSeconds > 0) {
                     totalSeconds--;
                     updateDisplay(totalSeconds);
+                } else {
+                    clearInterval(interval);
+                    
+                    hoursRemaining.style.display = 'none';
+                    minutesRemaining.style.display = 'none';
+                    secondsRemaining.style.display = 'none';
+                    timeUpMessage.style.display = 'block';
+
+                    setTimeout(() => {
+                        timerWindow.remove();
+                    }, 3000);
                 }
             }, 1000);
         });
@@ -100,9 +141,16 @@ export class TimerModule extends Module {
             }
 
             totalSeconds = 0;
+
+            timeUpMessage.style.display = 'none';
+            hoursRemaining.style.display = 'block';
+            minutesRemaining.style.display = 'block';
+            secondsRemaining.style.display = 'block';
+
             hoursRemaining.textContent = '00 Ч';
             minutesRemaining.textContent = '00 М';
             secondsRemaining.textContent = '00 С';
+            timeUpMessage.style.display = 'none';
         });
 
         //Закрытие таймера

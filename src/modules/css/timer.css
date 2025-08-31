@@ -29,6 +29,7 @@
 
     border: none;
     cursor: pointer;
+    
 }
 
 .time__remaining-container {
@@ -39,6 +40,7 @@
     font-size: 36px;
     letter-spacing: 3px;
     font-weight: bold;
+    font-family: monospace;
 }
 
 .timer__controls-container {
@@ -52,22 +54,30 @@
     margin: auto;
 
     font-size: 24px;
-    letter-spacing: 3px;
+    font-family: monospace;
+
+    letter-spacing: 2px;
 
     padding: 5px;
     border-radius: 4px;
 
-    border: 1px solid #545454;
-    background: #333333;
+    border: 1px solid #ccc;
+    background: transparent;
     color: #ffffff;
     text-align: center;
 
-    width: 360px;
+    width: 150px;
+}
+
+.time-up-message {
+    display: none;
+    font-family: monospace;
 }
 
 .button {
     font-size: 24px;
-    
+    font-family: monospace;
+
     margin: auto;
 
     color: #ffffff;
