@@ -1,4 +1,3 @@
-import './styles.css'
 import { ContextMenu } from './menu.js'
 import { ShapeModule } from './modules/shape.module.js'
 
