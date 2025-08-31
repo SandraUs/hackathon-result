@@ -1,7 +1,11 @@
 export class Menu {
   constructor(selector) {
+
     this.el = document.querySelector(selector);
     this.modules = [];
+
+    this.items = []
+
 
     // Закрытие меню при клике вне его
     document.body.addEventListener("click", (event) => {
